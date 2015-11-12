@@ -1,0 +1,14 @@
+{
+  "ihealth:utils": {
+    "git": "https://github.com/iHealthLab/framework-ui.git",
+    "path": "library/ihealth-utils"
+  },
+  "ihealth:framework-engine": {
+    "git": "https://github.com/iHealthLab/framework-ui.git",
+    "path": "library/ihealth-framework-engine"
+  },
+  "ihealth:framework-webapp": {
+    "git": "https://github.com/iHealthLab/framework-ui.git",
+    "path": "library/ihealth-framework-webapp"
+  }
+}
