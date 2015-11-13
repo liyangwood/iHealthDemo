@@ -1,15 +1,15 @@
 
-var border = '1px solid #cdcdcd';
+let border = '1px solid #cdcdcd';
 KG.Grid = React.createClass({
     mixins: [ReactMeteorData],
     getMeteorData(){
         Meteor.subscribe('DB.People');
 
-        var sort = {
+        let sort = {
             'createTime' : -1
         };
 
-        var data = DB.People.find({}, {sort : sort}).fetch();
+        let data = DB.People.find({}, {sort : sort}).fetch();
 
         return data;
     },
@@ -22,7 +22,7 @@ KG.Grid = React.createClass({
     },
 
     gridHeaderRender : function(){
-        var itemStyle = this.getItemStyle();
+        let itemStyle = this.getItemStyle();
 
         return <thead ><tr>
                 <th style={itemStyle}>
@@ -47,22 +47,22 @@ KG.Grid = React.createClass({
     delete : function(item){
 
         console.log(item._id);
-        var id = item._id;
+        let id = item._id;
 
         DB.People.remove({_id:id});
 
     },
 
     gridRender : function(){
-        var itemStyle = this.getItemStyle();
+        let itemStyle = this.getItemStyle();
 
-        var style = {
+        let style = {
         };
 
-        var self = this;
+
         return <tbody style={style}>
         {
-            _.map(this.data, function(item, index){
+            _.map(this.data, (item, index)=>{
                 return <tr key={index}>
                     <td style={itemStyle}>
                         {item._id}
@@ -77,7 +77,7 @@ KG.Grid = React.createClass({
                         {item.description}
                     </td>
                     <td style={itemStyle}>
-                        <RC.Button theme="inline" bgColor="#ff0000" onClick={self.delete.bind(self, item)}>Delete</RC.Button>
+                        <RC.Button theme="inline" bgColor="#ff0000" onClick={this.delete.bind(this, item)}>Delete</RC.Button>
                     </td>
                 </tr>;
             })
@@ -87,7 +87,7 @@ KG.Grid = React.createClass({
     },
 
     render : function(){
-        var style = {
+        let style = {
             padding : '10px 15px',
             background : '#fff',
             width : '100%',

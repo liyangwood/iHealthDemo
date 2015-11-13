@@ -16,7 +16,7 @@ App.Layout.Main = React.createClass({
     },
 
     render : function(){
-        var style = {
+        let style = {
             background : KG.config.style.bgColor
         };
 
