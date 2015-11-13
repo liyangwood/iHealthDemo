@@ -59,10 +59,10 @@ KG.Grid = React.createClass({
         var style = {
         };
 
-        var self = this;
+
         return <tbody style={style}>
         {
-            _.map(this.data, function(item, index){
+            _.map(this.data, (item, index)=>{
                 return <tr key={index}>
                     <td style={itemStyle}>
                         {item._id}
@@ -77,7 +77,7 @@ KG.Grid = React.createClass({
                         {item.description}
                     </td>
                     <td style={itemStyle}>
-                        <RC.Button theme="inline" bgColor="#ff0000" onClick={self.delete.bind(self, item)}>Delete</RC.Button>
+                        <RC.Button theme="inline" bgColor="#ff0000" onClick={this.delete.bind(this, item)}>Delete</RC.Button>
                     </td>
                 </tr>;
             })
