@@ -15,7 +15,7 @@ KG.AddPeople = React.createClass({
 
     submit : function(e){
         e.preventDefault();
-        var data = this.refs.form.getFormData();
+        let data = this.refs.form.getFormData();
         console.log(data);
 
         DB.People.insertData({
@@ -33,7 +33,7 @@ KG.AddPeople = React.createClass({
     },
 
     nameInputRender : function(){
-        var prop = {
+        let prop = {
             value : '',
             label : 'Name',
             placeholder : 'input people name',
@@ -48,7 +48,7 @@ KG.AddPeople = React.createClass({
     },
 
     descInputRender : function(){
-        var prop = {
+        let prop = {
             placeholder : 'type people description',
             label : 'Description',
             value : '',
@@ -66,20 +66,20 @@ KG.AddPeople = React.createClass({
     },
 
     sexInputRender : function(){
-        var options = ['男', '女'];
+        let options = ['男', '女'];
 
 
         return <RC.Select name="sex" labelColor="#009bba" options={options} value="女" label="Sex" />;
     },
 
     render : function(){
-        var formStyle = {
+        let formStyle = {
             padding : '0 15px',
             width : '100%',
             float : 'left'
         };
 
-        var buttonStyle = {
+        let buttonStyle = {
             float : 'right'
         };
 

@@ -5,11 +5,11 @@ KG.List = React.createClass({
     getMeteorData(){
         Meteor.subscribe('DB.People');
 
-        var sort = {
+        let sort = {
             'createTime' : -1
         };
 
-        var data = DB.People.find({}, {sort : sort}).fetch();
+        let data = DB.People.find({}, {sort : sort}).fetch();
 
         return _.map(data, function(item){
             return {
@@ -22,7 +22,7 @@ KG.List = React.createClass({
 
     render : function(){
 
-        var itemList = _.map(this.data, function(item, index){
+        let itemList = _.map(this.data, function(item, index){
             _.extend(item, {
                 theme : 'body',
                 uiClass : 'chevron-right',

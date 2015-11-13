@@ -1,15 +1,15 @@
 
-var border = '1px solid #cdcdcd';
+let border = '1px solid #cdcdcd';
 KG.Grid = React.createClass({
     mixins: [ReactMeteorData],
     getMeteorData(){
         Meteor.subscribe('DB.People');
 
-        var sort = {
+        let sort = {
             'createTime' : -1
         };
 
-        var data = DB.People.find({}, {sort : sort}).fetch();
+        let data = DB.People.find({}, {sort : sort}).fetch();
 
         return data;
     },
@@ -22,7 +22,7 @@ KG.Grid = React.createClass({
     },
 
     gridHeaderRender : function(){
-        var itemStyle = this.getItemStyle();
+        let itemStyle = this.getItemStyle();
 
         return <thead ><tr>
                 <th style={itemStyle}>
@@ -47,16 +47,16 @@ KG.Grid = React.createClass({
     delete : function(item){
 
         console.log(item._id);
-        var id = item._id;
+        let id = item._id;
 
         DB.People.remove({_id:id});
 
     },
 
     gridRender : function(){
-        var itemStyle = this.getItemStyle();
+        let itemStyle = this.getItemStyle();
 
-        var style = {
+        let style = {
         };
 
 
@@ -87,7 +87,7 @@ KG.Grid = React.createClass({
     },
 
     render : function(){
-        var style = {
+        let style = {
             padding : '10px 15px',
             background : '#fff',
             width : '100%',
