@@ -90,6 +90,8 @@ KG.AddPeople = React.createClass({
 
             <RC.Button style={buttonStyle} theme="inline" bgColor="brand1">Add People</RC.Button>
             <RC.Button style={buttonStyle} theme="inline" type="reset">Reset</RC.Button>
+            <div>sldjflsjflsdjfsl</div>
+            <KG.UI.labelE />
             </RC.Form>;
     }
 });
