@@ -1,51 +1,58 @@
-KG = {};
 
-var ALL_CLASS = {};
+KUI = {};
+
+var ALL_CLASS = {},
+    ALL_REACT_CLASS = {};
 var F = {
-    defineComponent : function(name, opts, parent){
-        if(ALL_CLASS[name]) return Meteor.Error(name +' component is exist');
+    define : function(name, opts, parent){
+        if(ALL_CLASS[name]) return (name +' component is exist');
+
+
+
+        opts = _.extend({
+            callParent : function(name, args){
+                if(this.getParent()){
+                    var par = this.getParent()[name];
+
+                    return _.isFunction(par) ? par.apply(this, args) : _.clone(par);
+                }
+            },
+
+
+            getParent : function(){
+                return ALL_CLASS[name]._parent || null;
+            }
+
+        }, opts);
 
         parent = parent ? ALL_CLASS[parent] : null;
 
         if(parent){
-            opts = _.extend(opts, parent);
+            opts = _.extend({}, parent, opts);
+            opts._parent = parent;
         }
 
-
+        opts._name = name;
         ALL_CLASS[name] = opts;
 
 
-        var tmp = React.createClass(opts);
-        if(Meteor.isClient){
-            KG.UI[name] = tmp;
-        }
+        var $obj = React.createClass(opts);
+        ALL_REACT_CLASS[name] = $obj;
 
-        return tmp;
+        return $obj;
+
     },
 
     getAllClass : function(){
         return ALL_CLASS;
+    },
+
+    get : function(name){
+        var tmp = ALL_REACT_CLASS[name];
+
+        return tmp || null;
     }
 
 };
 
-KG.UI = F;
-
-
-// base label
-KG.UI.defineComponent('label', {
-    getInitialState : function(){
-        return {
-            name : 'label',
-            color : 'red'
-        }
-    },
-
-    render : function(){
-        return <b>{this.state.name}, {this.state.color}</b>;
-    }
-});
-
-KG.UI.defineComponent('labelE', {
-
-}, 'label');
+KUI.Class = F;
