@@ -152,3 +152,21 @@ KUI.Button = KUI.Class.define('ui.Button', {
     watchStates: ["isHover","isActive"]
 
 }, 'ui.Label');
+
+
+KUI.NewButton = KUI.Class.define('ui.NButton', {
+
+}, 'ui.Button');
+
+class abc extends KUI.Button{
+    getInitialState(){
+        var a = super.getInitialState();
+
+        a.label = 'new';
+
+        return a
+    }
+
+
+}
+KUI.NNButton = abc;

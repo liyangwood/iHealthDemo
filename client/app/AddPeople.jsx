@@ -92,8 +92,8 @@ KG.AddPeople = React.createClass({
             {this.sexInputRender()}
             {this.descInputRender()}
 
-            <KUI.Button style={buttonStyle} theme="inline" bgColor="brand1">Add People</KUI.Button>
-            <KUI.Button style={buttonStyle} theme="inline" type="reset">Reset</KUI.Button>
+            <KUI.NewButton style={buttonStyle} theme="inline" bgColor="brand1">Add People</KUI.NewButton>
+            <KUI.NewButton style={buttonStyle} theme="inline" type="reset">Reset</KUI.NewButton>
             <KUI.Label />
             </RC.Form>;
     }
