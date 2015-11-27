@@ -18,6 +18,10 @@ KG.AddPeople = React.createClass({
         let data = this.refs.form.getFormData();
         console.log(data);
 
+        alert(JSON.stringify(data));
+
+        return false;
+
         DB.People.insertData({
             name : data.name,
             sex : data.sex,
@@ -88,8 +92,9 @@ KG.AddPeople = React.createClass({
             {this.sexInputRender()}
             {this.descInputRender()}
 
-            <RC.Button style={buttonStyle} theme="inline" bgColor="brand1">Add People</RC.Button>
-            <RC.Button style={buttonStyle} theme="inline" type="reset">Reset</RC.Button>
+            <KUI.NewButton style={buttonStyle} theme="inline" bgColor="brand1">Add People</KUI.NewButton>
+            <KUI.NewButton style={buttonStyle} theme="inline" type="reset">Reset</KUI.NewButton>
+            <KUI.Label />
             </RC.Form>;
     }
 });
