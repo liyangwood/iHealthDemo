@@ -4,7 +4,7 @@ KUI = {};
 var ALL_CLASS = {},
     ALL_REACT_CLASS = {};
 var F = {
-    define : function(name, opts, parent){
+    define : function(name, opts, parentName){
         if(ALL_CLASS[name]) return (name +' component is exist');
 
 
@@ -38,7 +38,7 @@ var F = {
         //setting = _.extend.apply(_, parent);
 
 
-        parent = parent ? ALL_CLASS[parent] : null;
+        parent = parentName ? ALL_CLASS[parentName] : null;
 
         if(parent){
             setting = _.extend({}, parent, opts);
